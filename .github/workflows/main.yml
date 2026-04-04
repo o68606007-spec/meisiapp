@@ -1,4 +1,4 @@
-name: Scheduled deploy
+name: Scheduled deploy-
 
 on:
   push:
