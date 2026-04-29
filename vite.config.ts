@@ -1,7 +1,18 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import env from "vite-plugin-env-compatible";
+import { resolve } from 'node:path';
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
-})
+    plugins: [react(), env({ prefix: "VITE", mountedPath: "process.env" })],
+    test: {
+    environment: 'jsdom',
+    globals: true,
+    setupFiles: ['./vitest-setup.ts'],
+    testTimeout: 10000,
+    },
+    resolve: {
+        alias: [{ find: '@', replacement: resolve(__dirname, './src') }]
+    },
+});
