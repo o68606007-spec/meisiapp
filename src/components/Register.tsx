@@ -22,25 +22,25 @@ export const Register: FC = memo(() => {
         <form onSubmit={onSubmit}>
             <Stack gap="4" align="flex-start" maxW="sm">
                 <Field.Root invalid={!!errors.user_id} data-testid="user-id">
-                    <Field.Label>
+                    <label>
                         好きな英単語 <Field.RequiredIndicator />
-                    </Field.Label>
+                    </label>
                     <Input type="text" {...register("user_id", {required: "内容の入力は必須です", pattern: { value: /^[a-zA-Z]+$/, message: "英単語のみ入力してください",},
                     })} />
-                    <Field.ErrorText>{errors.user_id?.message}</Field.ErrorText>
+                    {errors.user_id && <div>{errors.user_id.message as string}</div>}
                 </Field.Root>
                 <Field.Root invalid={!!errors.name} data-testid="name">
-                    <Field.Label>お名前</Field.Label>
+                    <label>お名前</label>
                     <Input type="text" {...register("name", {required: "内容の入力は必須です" })} />
-                    <Field.ErrorText>{errors.name?.message}</Field.ErrorText>
+                    {errors.name && <div>{errors.name.message as string}</div>}
                 </Field.Root>
                 <Field.Root invalid={!!errors.description} data-testid="description">
-                    <Field.Label>自己紹介</Field.Label>
+                    <label>自己紹介</label>
                     <Input type="text" {...register("description", {required: "内容の入力は必須です"})} />
-                    <Field.ErrorText>{errors.description?.message}</Field.ErrorText>
+                    {errors.description && <div>{errors.description.message as string}</div>}
                 </Field.Root>
                 <Field.Root invalid={!!errors.likeTechnology}>
-                    <Field.Label>好きな技術</Field.Label>
+                    <label>好きな技術</label>
                         <NativeSelect.Root>
                         <NativeSelect.Field {...register("likeTechnology", { required: "内容の入力は必須です" })}>
                             <option value="">Select option</option>
@@ -50,22 +50,22 @@ export const Register: FC = memo(() => {
                         </NativeSelect.Field>
                         <NativeSelect.Indicator />
                         </NativeSelect.Root>
-                    <Field.ErrorText>{errors.likeTechnology?.message}</Field.ErrorText>
+                    {errors.likeTechnology && <div>{errors.likeTechnology.message as string}</div>}
                 </Field.Root>
                 <Field.Root invalid={!!errors.githubId}>
-                    <Field.Label>GithubId</Field.Label>
+                    <label>GithubId</label>
                     <Input type="text" {...register("githubId")} />
-                    <Field.ErrorText>{errors.githubId?.message}</Field.ErrorText>
+                    {errors.githubId && <div>{errors.githubId.message as string}</div>}
                 </Field.Root>
                 <Field.Root invalid={!!errors.qiitaId}>
-                    <Field.Label>QiitaId</Field.Label>
+                    <label>QiitaId</label>
                     <Input type="text" {...register("qiitaId")} />
-                    <Field.ErrorText>{errors.qiitaId?.message}</Field.ErrorText>
+                    {errors.qiitaId && <div>{errors.qiitaId.message as string}</div>}
                 </Field.Root>
                 <Field.Root invalid={!!errors.xId}>
-                    <Field.Label>XId</Field.Label>
+                    <label>XId</label>
                     <Input type="text" {...register("xId")} />
-                    <Field.ErrorText>{errors.xId?.message}</Field.ErrorText>
+                    {errors.xId && <div>{errors.xId.message as string}</div>}
                 </Field.Root>
                 <Button type="submit" data-testid="button">Submit</Button>
             </Stack>
