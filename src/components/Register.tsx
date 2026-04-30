@@ -22,27 +22,27 @@ export const Register: FC = memo(() => {
         <form onSubmit={onSubmit}>
             <Stack gap="4" align="flex-start" maxW="sm">
                 <Field.Root invalid={!!errors.user_id} data-testid="user-id">
-                    <label>
+                    <label htmlFor="likeWord">
                         好きな英単語 <Field.RequiredIndicator />
                     </label>
-                    <Input type="text" {...register("user_id", {required: "内容の入力は必須です", pattern: { value: /^[a-zA-Z]+$/, message: "英単語のみ入力してください",},
+                    <Input id="likeWord" type="text" {...register("user_id", {required: "内容の入力は必須です", pattern: { value: /^[a-zA-Z]+$/, message: "英単語のみ入力してください",},
                     })} />
                     {errors.user_id && <div>{errors.user_id.message as string}</div>}
                 </Field.Root>
                 <Field.Root invalid={!!errors.name} data-testid="name">
-                    <label>お名前</label>
-                    <Input type="text" {...register("name", {required: "内容の入力は必須です" })} />
+                    <label htmlFor="firstName">お名前</label>
+                    <Input id="firstName" type="text" {...register("name", {required: "内容の入力は必須です" })} />
                     {errors.name && <div>{errors.name.message as string}</div>}
                 </Field.Root>
                 <Field.Root invalid={!!errors.description} data-testid="description">
-                    <label>自己紹介</label>
-                    <Input type="text" {...register("description", {required: "内容の入力は必須です"})} />
+                    <label htmlFor="selfDescription">自己紹介</label>
+                    <Input id="selfDescription" type="text" {...register("description", {required: "内容の入力は必須です"})} />
                     {errors.description && <div>{errors.description.message as string}</div>}
                 </Field.Root>
                 <Field.Root invalid={!!errors.likeTechnology}>
-                    <label>好きな技術</label>
+                    <label htmlFor="likeUseTechnology">好きな技術</label>
                         <NativeSelect.Root>
-                        <NativeSelect.Field {...register("likeTechnology", { required: "内容の入力は必須です" })}>
+                        <NativeSelect.Field id="likeUseTechnology" {...register("likeTechnology", { required: "内容の入力は必須です" })}>
                             <option value="">Select option</option>
                             <option value="1">React</option>
                             <option value="2">TypeScript</option>
@@ -53,18 +53,18 @@ export const Register: FC = memo(() => {
                     {errors.likeTechnology && <div>{errors.likeTechnology.message as string}</div>}
                 </Field.Root>
                 <Field.Root invalid={!!errors.githubId}>
-                    <label>GithubId</label>
-                    <Input type="text" {...register("githubId")} />
+                    <label htmlFor="githubId">GithubId</label>
+                    <Input id="githubId" type="text" {...register("githubId")} />
                     {errors.githubId && <div>{errors.githubId.message as string}</div>}
                 </Field.Root>
                 <Field.Root invalid={!!errors.qiitaId}>
-                    <label>QiitaId</label>
-                    <Input type="text" {...register("qiitaId")} />
+                    <label htmlFor="qiitaId">QiitaId</label>
+                    <Input id="qiitaId" type="text" {...register("qiitaId")} />
                     {errors.qiitaId && <div>{errors.qiitaId.message as string}</div>}
                 </Field.Root>
                 <Field.Root invalid={!!errors.xId}>
-                    <label>XId</label>
-                    <Input type="text" {...register("xId")} />
+                    <label htmlFor="xId">XId</label>
+                    <Input id="xId" type="text" {...register("xId")} />
                     {errors.xId && <div>{errors.xId.message as string}</div>}
                 </Field.Root>
                 <Button type="submit" data-testid="button">Submit</Button>

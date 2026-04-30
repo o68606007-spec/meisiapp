@@ -29,8 +29,8 @@
                 <form onSubmit={handleSubmit(onSubmit)}>
                 <Stack gap="4" align="flex-start" maxW="sm">
                     <Field.Root invalid={!!errors.ID} data-testid="id">
-                        <label>ID</label>
-                        <Input {...register("ID", {required: "内容の入力は必須です" })} />
+                        <label htmlFor="serachId">ID</label>
+                        <Input id="serachId" {...register("ID", {required: "内容の入力は必須です" })} />
                         {errors.ID && (
                             <div>{errors.ID.message as string}</div>
                         )}
