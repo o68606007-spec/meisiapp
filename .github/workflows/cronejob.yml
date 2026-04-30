@@ -33,5 +33,8 @@ jobs:
         run: npm install
       - name: Run batch
         run: node --loader ts-node/esm ./batch/index.ts
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}  
       # - name: Run batch
       #   run: npx ts-node --project tsconfig.node.json ./batch/index.ts
