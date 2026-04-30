@@ -2,7 +2,7 @@ name: crone job
 
 on:
   schedule:
-    - cron: "0 6 * * *" npx ts-node --esm ./batch/index.ts
+    - cron: "0 6 * * *"
   workflow_dispatch:
 
 jobs:
@@ -29,3 +29,7 @@ jobs:
         with:
           node-version: "22"
           cache: "npm"
+      - name: Install dependencies
+        run: npm install
+      - name: Run batch
+        run: npx ts-node --esm ./batch/index.ts
