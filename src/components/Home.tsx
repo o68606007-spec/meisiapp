@@ -2,7 +2,7 @@ import { memo, FC } from "react";
 import { Input, Field, Stack, Button, Box } from "@chakra-ui/react";
 import { useForm, SubmitHandler } from "react-hook-form";
 
-import { supabase } from "../utils/supabase";
+import { supabase } from "../utils/supabase.js";
 import { useNavigate, Link } from "react-router-dom";
 
     type FormValues = {

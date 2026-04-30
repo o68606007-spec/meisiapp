@@ -1,4 +1,4 @@
-import { supabase } from "../src/utils/supabase";
+import { supabase } from "../src/utils/supabase.js";
 
 
 export const deleteYesterdayData = async () => {

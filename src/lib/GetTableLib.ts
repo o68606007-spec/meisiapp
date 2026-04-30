@@ -1,6 +1,6 @@
-import { supabase } from "../utils/supabase";
+import { supabase } from "../utils/supabase.js";
 
-import { Users } from "../domain/GetTableDomain";
+import { Users } from "../domain/GetTableDomain.js";
 
 export const getTableLib = async (id: string) => {
     const res = await supabase.from("users").select(`*, user_skill (skill_id, skills (*))`).eq("user_id", id);

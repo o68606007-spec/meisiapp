@@ -6,8 +6,8 @@ import { FaGithub } from "react-icons/fa";
 import { SiQiita, SiX } from "react-icons/si";
 import { useNavigate } from "react-router-dom";
 
-import { getTableLib } from "../lib/GetTableLib";
-import { Users } from "../domain/GetTableDomain";
+import { getTableLib } from "../lib/GetTableLib.js";
+import { Users } from "../domain/GetTableDomain.js";
 
 
 export const Cards: FC = memo(() => {

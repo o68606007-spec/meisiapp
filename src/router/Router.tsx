@@ -1,9 +1,9 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { memo, FC } from "react";
 
-import { Cards } from "../components/Card";
-import { Home } from "../components/Home";
-import { Register } from "../components/Register";
+import { Cards } from "../components/Card.js";
+import { Home } from "../components/Home.js";
+import { Register } from "../components/Register.js";
 
 export const Router: FC = memo(() => {
     return (

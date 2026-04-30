@@ -1,7 +1,7 @@
 import { memo, FC } from "react";
 import { Button, Field, Input, Stack, NativeSelect, createListCollection } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
-import { supabase } from "../utils/supabase";
+import { supabase } from "../utils/supabase.js";
 import { useNavigate } from "react-router-dom";
 
 export const Register: FC = memo(() => {
