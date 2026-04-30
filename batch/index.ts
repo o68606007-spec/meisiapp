@@ -1,4 +1,4 @@
-import { deleteYesterdayData } from "./deleteYesterdayData";
+import { deleteYesterdayData } from "./deleteYesterdayData.js";
 
 deleteYesterdayData()
     .then(() => {
