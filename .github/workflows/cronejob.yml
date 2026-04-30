@@ -32,4 +32,6 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Run batch
-        run: npx ts-node --project tsconfig.node.json ./batch/index.ts
+        run: node --loader ts-node/esm ./batch/index.ts
+      # - name: Run batch
+      #   run: npx ts-node --project tsconfig.node.json ./batch/index.ts
