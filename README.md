@@ -1,73 +1,52 @@
-# React + TypeScript + Vite
+# サービス名
+デジタル名刺アプリ
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# サービスの説明
+勉強会で名刺交換をする中で、書いてある内容がそれぞれ違うため話題が生まれにくく、持っている人持っていない人がいることに目をつけて誰もがその場で登録できるオンライン名刺システムを開発することにしました
+オンライン名刺はその日まで有効で、次の日にはみれなくなるようにしようと考えました
 
-Currently, two official plugins are available:
+# 環境設定の方法(.envなど)
+このリポジトリをクローンしてください。 
+git@github.com/o68606007-spec/meisiapp.git
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+依存関係のインストールをしてください。 
+npm ci
 
-## React Compiler
+.envファイルを作成しsupabaseの設定値を入力してください 
+1.meisiappという名前でプロジェクト名を作成してください。 
+2.users、user_skill、skillsという名前のテーブルを作成し、以下のカラムを作成してください。
+3.プロジェクトURLとプロジェクトキーを.env内のVITE_SUPABASE_URLとVITE_SUPABASE_PROJECT_KEY変数にコピー&ペーストしてください。
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+users
 
-## Expanding the ESLint configuration
+|カラム名 | 型 |option|
+|:--------|:----|:------|
+|user_id	|varchar	|non null|
+|name	|varchar	|non null|
+|description	|text	|non null|
+|github_id	|varchar	|null|
+|qiita_id	|varchar	|null|
+|x_id	|varchar	|null|
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+user_skill
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+|カラム名 | 型 |option|
+|:--------|:----|:------|
+|id	|int8	|　|
+|user_id	|varchar|	non null|
+|skill_id	|int8	|non null|
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+skills
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+|カラム名 | 型 |option|
+|:--------|:----|:------|
+|id	|int8	|　|
+|name	|varchar	|non null|
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+それぞれのテーブルの条件は以下になっている。
+users.user_id = user_skill.user_id
+skills.id = user_skill.skill_id
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+# 起動の仕方
+npm run dev ターミナルでURLをクリックすると、開くことができます。
